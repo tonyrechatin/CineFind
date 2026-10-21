@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CineFind aide à retrouver un film à partir d'une réplique ou d'une image de scène.">
+  <title>CineFind — retrouve ton film</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="CineFind accueil"><span class="brand-icon">▶</span> CineFind</a>
+    <span class="top-note">Le film que tu cherches.</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">TON DÉTECTIVE CINÉMA</div>
+      <h1>Tu as la scène en tête.<br><span>On retrouve le film.</span></h1>
+      <p>Recherche par réplique ou à partir d'une capture d'écran.</p>
+    </section>
+
+    <section class="search-card">
+      <div class="tabs" role="tablist" aria-label="Méthode de recherche">
+        <button class="tab active" id="quoteTab" role="tab" aria-selected="true" aria-controls="quotePanel">💬 Par réplique</button>
+        <button class="tab" id="imageTab" role="tab" aria-selected="false" aria-controls="imagePanel">🖼️ Par image</button>
+      </div>
+
+      <div id="quotePanel" class="panel" role="tabpanel" aria-labelledby="quoteTab">
+        <label for="quoteInput">Écris la réplique dont tu te souviens</label>
+        <textarea id="quoteInput" rows="3" placeholder="Ex. : une phrase prononcée dans le film…"></textarea>
+        <button id="quoteSearch" class="primary">Retrouver le film <span>→</span></button>
+        <p class="hint">Cette version de démonstration reconnaît uniquement les exemples intégrés. Une vraie recherche à grande échelle nécessite une base de dialogues.</p>
+      </div>
+
+      <div id="imagePanel" class="panel hidden" role="tabpanel" aria-labelledby="imageTab">
+        <label for="imageInput">Ajoute une capture d'écran</label>
+        <input id="imageInput" type="file" accept="image/*">
+        <div id="previewWrap" class="preview-wrap hidden">
+          <img id="preview" alt="Aperçu de la capture d'écran">
+          <button id="removeImage" class="secondary" type="button">Retirer l'image</button>
+        </div>
+        <label for="sceneInput">Décris la scène (pour cette version de démonstration)</label>
+        <input id="sceneInput" type="text" placeholder="Ex. : un bateau, l'océan, un coucher de soleil">
+        <button id="sceneSearch" class="primary">Chercher des films correspondants <span>→</span></button>
+        <p class="hint">Important : l'image est affichée localement. Cette version ne comprend pas encore automatiquement son contenu. La reconnaissance visuelle par IA sera ajoutée dans une prochaine version.</p>
+      </div>
+    </section>
+
+    <section id="resultsSection" class="results-section hidden" aria-live="polite">
+      <div class="results-heading">
+        <div><div class="eyebrow">RÉSULTATS</div><h2 id="resultsTitle">Films possibles</h2></div>
+        <span id="resultCount" class="count"></span>
+      </div>
+      <div id="results" class="results-grid"></div>
+    </section>
+
+    <section class="demo-box">
+      <div class="demo-symbol">✦</div>
+      <div>
+        <h3>Essaie la démo</h3>
+        <p>Teste une recherche préenregistrée pour voir le fonctionnement de l'interface.</p>
+        <button id="demoButton" class="text-button">Remplir un exemple de réplique ↗</button>
+      </div>
+    </section>
+
+    <footer>
+      <p><strong>CineFind</strong> — prototype indépendant pour retrouver des films.</p>
+      <p>Les résultats de démonstration sont limités et ne constituent pas une base exhaustive de répliques.</p>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
